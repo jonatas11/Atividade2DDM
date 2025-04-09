@@ -1,20 +1,42 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Contador Personalizado
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-label position="floating">Digite até qual número contar</ion-label>
+    <ion-input type="number" [(ngModel)]="limite"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="gerarNumeros()">
+    Gerar Números
+  </ion-button>
+  <ion-button expand="block" [routerLink]="['/pares-impares']">
+    Ir para Filtro de Números
+  </ion-button>
+  <ion-button expand="block" [routerLink]="['/com-for']">
+    Ir para Exemplo com FOR
+  </ion-button>
+  <ion-button expand="block" [routerLink]="['/com-switch']">
+    Ir para Exemplo com SWITCH
+  </ion-button>
+  <ion-button expand="block" [routerLink]="['/adivinha']">
+    Ir para Jogo de Adivinhação
+  </ion-button>
+  <ion-button expand="block" [routerLink]="['/pedra-papel-tesoura']">
+    Ir para Jogo Pedra, Papel e Tesoura.
+  </ion-button>
+
+  <ion-list *ngIf="numeros.length > 0">
+    <ion-item *ngFor="let numero of numeros">
+      Número: {{ numero }}
+    </ion-item>
+  </ion-list>
+
+
 </ion-content>

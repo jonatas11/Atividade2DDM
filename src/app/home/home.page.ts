@@ -6,8 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
   standalone: false,
 })
+
 export class HomePage {
+  numeros: number[] = [];
+  limite: number = 0;
 
   constructor() {}
 
+  gerarNumeros() {
+    this.numeros = [];
+    let i = 1;
+    while (i <= this.limite) {
+      this.numeros.push(i);
+      i++;
+    }
+  }
 }
